@@ -11,6 +11,7 @@ export default class {
       minute: "00",
     };
     this.alaramArray = JSON.parse(localStorage.getItem("data-alarams")) || [];
+    this.timerList = JSON.parse(localStorage.getItem("data-timers")) || [];
 
     if (init) return;
 
@@ -110,6 +111,11 @@ export default class {
     }
   };
 
+  setTimerList = (timerObj) => {
+    this.timerList = timerObj;
+    localStorage.setItem("data-timers", JSON.stringify(this.timerList));
+  };
+
   onInsertAlaram = () => {
     const currentTime = new Date();
     let currentYear = currentTime.getFullYear();
@@ -159,10 +165,16 @@ export default class {
     this.setAlaramList(this.alaramArray.concat(newAlaram));
 
     /* makes alaram */
-    setTimeout(() => {
+    const newTimer = setTimeout(() => {
       alert(`${newAlaram.hour}시 ${newAlaram.minute}분이 되었습니다!`);
       this.deleteAlaramItem(newAlaram.id, false);
     }, alaramTimeLeft);
+
+    const newTimerObj = {
+      id: newAlaram.id,
+      timer: newTimer,
+    };
+    this.setTimerList(this.timerList.concat(newTimerObj));
 
     this.addNewAlaramItem(newAlaram);
   };
@@ -199,6 +211,16 @@ export default class {
       (alaramItem) => alaramItem.id !== selectedId
     );
     this.setAlaramList(nextAlaramArray);
+
+    const nextTimerList = this.timerList.filter((timerItem) => {
+      if (selectedId === parseInt(timerItem.id)) {
+        clearTimeout(parseInt(timerItem.timer));
+        return false;
+      }
+      return true;
+    });
+
+    this.setTimerList(nextTimerList);
 
     if (updateDone) return;
     try {

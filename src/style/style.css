@@ -1,0 +1,287 @@
+* {
+  font-family: monospace;
+}
+#apps-screen {
+  display: flex;
+  margin: 0 auto;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #4b75c4;
+  width: 400px;
+}
+
+#header-bar {
+  width: 100%;
+  padding: 4px 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid whitesmoke;
+}
+
+#current-time {
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.header-function-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  background: #f3f0f0;
+  border-radius: 8px;
+  width: 50px;
+  height: 20px;
+
+  visibility: hidden;
+}
+
+.header-function-button:hover {
+  background: #f9f9f9;
+}
+#button-left {
+  margin-left: 10px;
+}
+
+#button-right {
+  margin-right: 10px;
+}
+
+/* App con */
+.empty-space {
+  visibility: hidden;
+}
+
+#app-router-container {
+  height: 100%;
+  margin-bottom: 30px;
+  border: 10px solid rgba(black, 0.1);
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: repeat(4, 60px);
+  grid-template-columns: repeat(4, 60px);
+  gap: 30px;
+}
+
+#app-contents-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  height: 500px;
+}
+
+.apps-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid white;
+  background: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 300;
+  color: black;
+}
+
+#memo-input {
+  padding: 4px 2px;
+  width: 100%;
+}
+
+#memo-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.memo-paper {
+  list-style-type: none;
+  padding: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid white;
+}
+
+.memo-paper.summarized:hover {
+  background: #f3f0f0;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.memo-paper.reading:hover {
+  background: grey;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.main-empty-space {
+  width: 5%;
+}
+main {
+  width: 90%;
+}
+
+#alaram-setting-bar {
+  display: flex;
+  justify-content: flex-start;
+  background: white;
+  border: 1.5px solid white;
+  padding: 5px;
+  visibility: hidden;
+  border-bottom: 1px solid #4b75c4;
+}
+
+.up-down-button {
+  display: flex;
+  flex-direction: column;
+  width: 25px;
+}
+
+.up-down-button button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  background: #4b75c4;
+}
+
+.up-down-button button:hover {
+  background-color: lightblue;
+}
+
+.alaram-setting-component {
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid peru;
+  margin-right: 10px;
+}
+
+.alaram-setting-component span {
+  background: white;
+  margin-right: 7px;
+  padding: 3px;
+}
+
+.dummy-div {
+  width: 50px;
+}
+
+#alaram-add-button {
+  flex: 1;
+  cursor: pointer;
+  border-radius: 6px;
+  background: white;
+  color: #05d0eb;
+  border: 1px solid #05d0eb;
+}
+
+#alaram-add-button:hover {
+  background: lightblue;
+}
+
+#alaram-list {
+  background: white;
+  overflow-y: auto;
+}
+
+.alaram-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 3px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #4b75c4;
+}
+
+.alaram-item:last-of-type {
+  border-bottom: none;
+}
+
+.alaram-delete-button {
+  outline: none;
+  cursor: pointer;
+  background: none;
+  border-radius: 5px;
+  color: #da2c43;
+  border: 1px solid #da2c43;
+  height: 20px;
+}
+
+.alaram-delete-button:hover {
+  background-color: #cd5c5c;
+}
+
+#picture-list {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  overflow-x: auto;
+  width: 100%;
+  height: 120px;
+}
+
+.picture-container {
+  margin-left: 5px;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.picture-list-item {
+  object-fit: cover;
+  width: 70px;
+  height: 70px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: filter 0.3s ease-out;
+}
+
+.picture-list-item:hover {
+  filter: hue-rotate(180deg);
+  -webkit-filter: hue-rotate(180deg);
+}
+
+.picture-list-item.selected {
+  border: 4px solid #c51a4a;
+}
+#gallery-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#picture-now-contanier {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#picture-now {
+  width: 370px;
+  height: 370px;
+  object-fit: cover;
+  object-position: center;
+  visibility: hidden;
+}
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: black;
+}

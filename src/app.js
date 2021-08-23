@@ -84,6 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.onload = async () => {
   new Header().updateClock();
-  new Alaram().alaramChecker();
+  new Alaram(true).alaramChecker();
   ImageArray = await preloadImage([...ImgsSrc]);
 };

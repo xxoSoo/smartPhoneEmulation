@@ -1,5 +1,5 @@
 export default class {
-  constructor() {
+  constructor(init) {
     this.alaramSettingBarCreated = false;
     this.alaramSettingStatus = {
       id:
@@ -11,6 +11,8 @@ export default class {
       minute: "00",
     };
     this.alaramArray = JSON.parse(localStorage.getItem("data-alarams")) || [];
+
+    if (init) return;
 
     const headerLeftButton = document.querySelector("#button-left");
     const headerRightButton = document.querySelector("#button-right");
